@@ -1,7 +1,7 @@
 name: mlflow-demo-iris
 
 docker_env: 
-  image: mlflow-demo-iris-base:latest # base docker image which contains the environment/dependencies for the MLFlow Project execution
+  image: 127923327338.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-base:latest # base docker image which contains the environment/dependencies for the MLFlow Project execution
 
 entry_points:
   main:

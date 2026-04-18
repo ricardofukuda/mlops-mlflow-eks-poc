@@ -20,6 +20,8 @@ jobs:
       docker:
         image: docker:dind
         options: --privileged
+        ports:
+          - 2375:2375
     steps:
       - name: Checkout
         uses: actions/checkout@v4

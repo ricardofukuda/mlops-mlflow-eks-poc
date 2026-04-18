@@ -11,3 +11,10 @@ resource "aws_ecr_repository" "mlflow-demo-iris-inference" {
 
   force_delete = true
 }
+
+resource "aws_ecr_repository" "mlflow-demo-iris-base" {
+  name                 = "mlflow-demo-iris-base"
+  image_tag_mutability = "MUTABLE"
+
+  force_delete = true
+}

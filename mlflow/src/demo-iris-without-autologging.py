@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 # Set our tracking server uri for logging
 #mlflow.set_tracking_uri(uri="https://mlflow.ricardofxyz.click")
-mlflow.set_tracking_uri(uri="http://mlflow-tracking.mlflow:80")
+#mlflow.set_tracking_uri(uri="http://mlflow-tracking.mlflow:80")
 
 # Create a new MLflow Experiment
 mlflow.set_experiment("iris")

@@ -1,5 +1,5 @@
 {
-  "kube-context": "arn:aws:eks:us-east-1:123456789:cluster/eks-infra",
-  "repository-uri": "123456789.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris",
+  "kube-context": "arn:aws:eks:us-east-1:127923327338:cluster/eks-infra",
+  "repository-uri": "127923327338.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris",
   "kube-job-template-path": "kubernetes_job_template.yaml"
 }

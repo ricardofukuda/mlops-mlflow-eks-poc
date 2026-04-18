@@ -7,7 +7,7 @@ spec:
   predictor:
     containers:
       - name: "mlflow-demo-iris"
-        image: "123456789.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference"
+        image: "127923327338.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference"
         ports:
           - containerPort: 8080
             protocol: TCP

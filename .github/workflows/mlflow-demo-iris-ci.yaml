@@ -43,5 +43,9 @@ jobs:
       - name: Run training
         env:
           DOCKER_IMAGE: "${{ steps.login-ecr.outputs.registry }}/${{ env.APPLICATION }}:latest"
+          MLFLOW_EXPERIMENT_NAME: iris
+          MLFLOW_TRACKING_URI: 'https://mlflow.ricardoxyz.website'
+          MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
+          MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
         run: docker run --rm ${{ env.DOCKER_IMAGE }} mlflow run /mlflow/projects/code/ --backend kubernetes --backend-config /mlflow/projects/code/kubernetes_backend.json 
         shell: bash

@@ -2,6 +2,14 @@
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "ecrManager",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken"
+      ],
+      "Resource": "*"
+    },
+    {
       "Sid": "ecr",
       "Effect": "Allow",
       "Action": [
@@ -16,14 +24,6 @@
         "ecr:GetDownloadUrlForLayer"
       ],
       "Resource": "arn:aws:ecr:us-east-1:127923327338:repository/mlflow-demo-iris*"
-    },
-    {
-      "Sid": "ecrManager",
-      "Effect": "Allow",
-      "Action": [
-        "ecr:GetAuthorizationToken"
-      ],
-      "Resource": "*"
     },
     {
       "Sid": "eks",

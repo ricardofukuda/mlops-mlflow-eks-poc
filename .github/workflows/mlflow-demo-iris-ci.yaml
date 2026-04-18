@@ -43,7 +43,7 @@ jobs:
           DOCKER_IMAGE: "${{ env.APPLICATION }}-base:latest"
         with:
           context: mlflow/
-          push: true
+          push: false
           tags: ${{ env.DOCKER_IMAGE }}
       - name: Config kubeconfig
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name eks-infra --kubeconfig ${{ github.workspace }}/config

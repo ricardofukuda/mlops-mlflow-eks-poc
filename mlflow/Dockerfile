@@ -4,7 +4,6 @@ FROM python:3.10
 RUN mkdir -p /mlflow/projects/code/
 WORKDIR /mlflow/projects/code/
 
-COPY src/ /mlflow/projects/code/
-COPY requirements.txt /mlflow/projects/code/requirements.txt
+COPY . .
 
 RUN pip install --requirement requirements.txt

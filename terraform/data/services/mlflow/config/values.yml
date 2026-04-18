@@ -14,6 +14,10 @@ extraArgs:
 extraEnvVars:
   MLFLOW_SERVER_ALLOWED_HOSTS: 'mlflow.ricardoxyz.website'
 
+auth:
+  enabled: true
+  adminUsername: admin 
+  adminPassword: ${adminPassword}
 #  resources:
 #    requests:
 #      cpu: 200m

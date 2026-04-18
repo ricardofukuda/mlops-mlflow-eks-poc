@@ -16,8 +16,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      DOCKER_IMAGE: ${{ env.DOCKER_IMAGE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,6 +38,8 @@ jobs:
           context: mlflow/
           push: true
           tags: ${{ env.DOCKER_IMAGE }}
+      - name: Config kubeconfig
+        run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name eks-infra
       - name: Run training
         env:
           DOCKER_IMAGE: "${{ steps.login-ecr.outputs.registry }}/${{ env.APPLICATION }}:latest"

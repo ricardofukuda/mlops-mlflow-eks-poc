@@ -16,6 +16,7 @@ data "template_file" "values" {
   template = file("config/values.yml")
   vars = {
     domain = var.domain
+    adminPassword = local.secrets.adminPassword
   }
 }
 

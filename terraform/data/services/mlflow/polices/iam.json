@@ -5,7 +5,6 @@
       "Sid": "ecr",
       "Effect": "Allow",
       "Action": [
-        "ecr:GetAuthorizationToken",
         "ecr:Describe*",
         "ecr:List*",
         "ecr:PutImage",
@@ -14,10 +13,17 @@
         "ecr:UploadLayerPart",
         "ecr:CompleteLayerUpload",
         "ecr:BatchGetImage",
-        "eks:DescribeCluster",
         "ecr:GetDownloadUrlForLayer"
       ],
       "Resource": "arn:aws:ecr:us-east-1:127923327338:repository/mlflow-demo-iris*"
+    },
+    {
+      "Sid": "ecrManager",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken"
+      ],
+      "Resource": "*"
     },
     {
       "Sid": "eks",

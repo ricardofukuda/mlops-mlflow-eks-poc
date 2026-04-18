@@ -48,7 +48,7 @@ jobs:
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name eks-infra --kubeconfig ${{ github.workspace }}/config
       - name: Run training
         env:
-          DOCKER_IMAGE: "${{ env.APPLICATION }}-base:latest"
+          DOCKER_IMAGE: "${{ steps.login-ecr.outputs.registry }}/${{ env.APPLICATION }}-base:latest"
           MLFLOW_EXPERIMENT_NAME: iris
           MLFLOW_TRACKING_URI: 'https://mlflow.ricardoxyz.website'
           MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}

@@ -37,7 +37,7 @@ aws eks update-kubeconfig --region us-east-1 --name eks-infra
 docker login:
 ```
 export AWS_PROFILE=session
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 123456789.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 127923327338.dkr.ecr.us-east-1.amazonaws.com
 ```
 
 Build the BASE docker image which contains the environment/dependencies for the MLFlow Project execution:
@@ -50,7 +50,7 @@ Build the MLFlow Project as a docker image, push it to ECR, then runs the traini
 ```
 aws ecr create-repository --region us-east-1 --repository-name mlflow-demo-iris
   
-export MLFLOW_TRACKING_URI=https://mlflow.ricardoxyz.xyz
+export MLFLOW_TRACKING_URI=https://mlflow.ricardoxyz.website
 export MLFLOW_EXPERIMENT_NAME=iris
 mlflow run . --backend kubernetes --backend-config ./kubernetes_backend.json --build-image
 ```
@@ -61,8 +61,8 @@ You must specify the mlflow run id.
 ```
 aws ecr create-repository --region us-east-1 --repository-name mlflow-demo-iris-inference
 export MLFLOW_TRACKING_URI=https://mlflow.ricardoxyz.xyz
-mlflow models build-docker -m runs:/<MLFLOW RUN ID>/model -n 123456789.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference --enable-mlserver
-docker push 123456789.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference:latest
+mlflow models build-docker -m runs:/<MLFLOW RUN ID>/model -n 127923327338.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference --enable-mlserver
+docker push 127923327338.dkr.ecr.us-east-1.amazonaws.com/mlflow-demo-iris-inference:latest
 ```
 
 ### Deploy the InferenceService

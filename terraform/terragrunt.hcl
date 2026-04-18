@@ -1,14 +1,5 @@
-remote_state {
-  backend = "s3"
-  
-  generate = {
-    path      = "backend.tf"
-    if_exists = "overwrite_terragrunt"
-  }
-
-  config = {
-    key = "${path_relative_to_include()}/terraform.tfstate"
-    bucket = "tf-fukuda-mlops-mlflow-demo"
-    region = "us-east-1"
-  }
+exclude { # prevent this "empty" parent terraform from running during 'terragrunt run --all'
+    if = true
+    no_run = true
+    actions = ["all"]
 }

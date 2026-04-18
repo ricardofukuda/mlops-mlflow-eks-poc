@@ -1,1 +1,0 @@
-domain = "ricardoxyz.xyz"

@@ -19,3 +19,10 @@ module "iam_github_oidc_role" {
     github_actions_policy = module.github_actions_policy.arn
   }
 }
+
+resource "aws_eks_access_entry" "access" { # Basically, it is going to make the aws role assume this k8s RBAC group inside k8s
+  cluster_name      = data.aws_eks_cluster.eks.name
+  principal_arn     = module.iam_github_oidc_role.arn
+  kubernetes_groups = ["github-actions-mlflow"]
+  type              = "STANDARD"
+}

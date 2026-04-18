@@ -33,4 +33,6 @@ WORKDIR /mlflow/projects/code/
 
 COPY . .
 
+#RUN pip install mlflow
+#RUN pip install kubernetes
 RUN pip install --requirement requirements.txt

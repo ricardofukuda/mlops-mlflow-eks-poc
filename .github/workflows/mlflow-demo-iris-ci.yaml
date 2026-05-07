@@ -46,10 +46,8 @@ jobs:
 #          tags: ${{ env.DOCKER_IMAGE }}
       - name: Config kubeconfig
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name eks-infra
-      - name: aaa
+      - name: ecr login
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 127923327338.dkr.ecr.us-east-1.amazonaws.com
-      - name: bbb
-        run: tail /home/runner/.kube/config
       - name: Run training
         env:
           DOCKER_IMAGE: "${{ steps.login-ecr.outputs.registry }}/${{ env.APPLICATION }}-base:latest"
